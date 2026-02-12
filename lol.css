@@ -1,3 +1,19 @@
 body {
   font-family: "Helvetica", "Arial", sans-serif;
 }
+
+li {
+    color: darkgray;
+}
+
+.tanque { /** clases se definen con un . al principio **/
+    color: red;
+}
+#vi { /** id con #**/
+    font-size: large;
+}
+
+.tanque:hover {
+    font-size: large;
+    color: black;
+}
