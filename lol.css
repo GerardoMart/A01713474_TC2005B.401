@@ -9,11 +9,11 @@ li {
 .tanque { /** clases se definen con un . al principio **/
     color: red;
 }
-#vi { /** id con #**/
+#vi { /** id con # **/
     font-size: large;
 }
 
-.tanque:hover {
+.tanque:hover { /** pseudoclase **/
     font-size: large;
     color: black;
 }
