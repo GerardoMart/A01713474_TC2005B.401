@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Tareas</title>
+
+    <style>
+        body {
+            background-color: #96b3c0;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</header>
+
+<body>
+    <h1>Gerardo Martínez Carbajal</h1>
+    <p>Matrícula: A01713474</p>
+    <p>Correo electrónico personal: gerardomartinezcbj@gmail.com</p>
+    <p>Correo electrónico institucional: A01713474@tec.mx</p>
+
+    <h2>Sobre mí:</h2>
+    <p>Hola, me llamo Gerardo Martínez Carbajal.</p>
+    <p>Me gusta:</p> 
+    <ul>
+        <li>Los videjuegos</li>
+        <li>El Fútbol</li> 
+        <li>Dibujar</li>
+        <li>Practicar Taekwondo</li>
+    </ul>
+    <p><strong>Dato curioso:</strong> Practiqué taekwondo desde mis 4 años y fui cinta negra infantil recién cumplidos los 10 años.</p>
+
+    <h2>Foto de cuando estaba en la preparatoria:</h3>
+    <img src="img/yo.heic" alt="Foto mía en la preparatoria" width="300">
+    
+    <h2>Preguntas a responder:</h2>
+    <p>¿Cuál es la diferencia entre Internet y la World Wide Web?</p>
+    <ul>
+        <li>Básicamente, que el internet es la red, mientras que la world wide web es un servicio que usa esa red</li>
+    </ul>
+    <p>¿Cuáles son las partes de un URL?</p>
+    <ul>
+        <li> 
+            <p> Se separan principalmente en: </p>
+            <p>Protocolo = https</p> 
+            <p>Dominio= www.google.com</p> 
+            <p>Ruta (también llamado path) =  /carpeta/pagina.html</p>
+        </li>
+    </ul>
+    <p>¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?</p>
+    <ul>
+        <li>
+            <p>GET = Obtener información del servidor.</p> 
+            <p>HEAD = Es igual que GET, pero este sólo devuelve encabezados y no el cuerpo.</p> 
+            <p>POST = Enviar datos al servidor (osea crear recursos).</p>
+            <p>PUT = Reemplazar por completo un recurso.</p>
+            <p>PATCH = Modificar parcialmente un recurso.</p>
+            <p>DELETE = Eliminar un recurso.</p>
+        </li>
+    </ul>
+    <p>¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?</p>
+    <ul>
+        <li> 
+            <p>Se debe usar el método POST porque:</p> 
+            <p>Los datos se envían en el cuerpo de la petición.</p> 
+            <p>No aparecen en el URL.</p>
+            <p>Es más seguro que GET (aunque pues siempre debe usarse con HTTPS).</p>
+        </li>
+    </ul>
+    <p>¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?</p>
+    <ul>
+        <li> 
+            <p>Se utiliza GET porque el navegador está solicitando en este caso obtener un recurso.</p> 
+        </li>
+    </ul>
+    <p>Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?</p>
+    <ul>
+        <li> 
+            <p>Significa “OK”, por lo que la petición fue exitosa y no ocurrió ningún error.</p> 
+        </li>
+    </ul>
+    <p>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</p>
+    <ul>
+        <li> 
+            <p>Sí.</p>
+            <p>El error 404 significa “Not Found” (recurso no encontrado).</p>
+            <p>Esto puede deberse a que el enlace roto,la página esté eliminada o que haya una ruta incorrecta.</p>
+            <p>El desarrollador tiene que corregir enlaces o redirecciones.</p> 
+        </li>
+    </ul>
+    <p>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</p>
+    <ul>
+        <li> 
+            <p>Sí.</p>
+            <p>El error 500 significa “Internal Server Error”.</p>
+            <p>Es un error del servidor, normalmente causado por:</p>
+            <p>Problemas en el código backend, alguna configuración incorrecta o por fallos en la base de datos.</p>
+            <p>Esto es completamente responsabilidad del desarrollador o administrador del servidor.</p> 
+        </li>
+    </ul>
+    <p>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.</p>
+    <ul>
+        <li> 
+            <p>Significa que tanto ya no se recomienda su uso, como que puede eliminarse en futuras versiones o tam bién, que existe una alternativa moderna.</p>
+            <p>Ejemplos de etiquetas desaprobadas de HTML4: </p>
+            <p>font</p>
+            <p>center</p>
+            <p>big</p>
+            <p>strike</p>
+            <p>frameset</p>
+            <p>frame</p>
+            <p>Ya que en HTML5 se usa CSS en lugar de estas etiquetas.</p>
+        </li>
+    </ul>
+    <p>¿Cuáles son las diferencias principales entre HTML 4 y HTML5?</p>
+    <ul>
+        <li> 
+            <p>HTML5 incluye: </p>
+            <p>Nuevas etiquetas semánticas: </p>
+            <p>header</p>
+            <p>footer</p>
+            <p>section</p>
+            <p>article</p>
+            <p>nav</p>
+            <p>Tiene soporte nativo para: </p>
+            <p>audio</p>
+            <p>video</p>
+            <p>canvas</p>
+            <p>También nuevos tipos de input: </p>
+            <p>email</p>
+            <p>date</p>
+            <p>number</p>
+            <p>range</p>
+            <p>Además hubo una eliminación de etiquetas de presentación (ahora se usa CSS).</p>
+            <p>Hay un doctype más simple: </p>
+            <p>!DOCTYPE html</p>
+        </li>
+    </ul>
+    <p>¿Qué componentes de estructura y estilo tiene una tabla?</p>
+    <ul>
+        <li>    
+            <p>input type="text" = campo de texto</p>
+            <p>input type="email" = campo para correo electrónico</p>
+            <p>input type="password" = campo para contraseña</p>
+            <p>input type="number" = campo numérico</p>
+            <p>input type="date" = selector de fecha</p>
+            <p>input type="radio" = botón de opción única</p>
+            <p>input type="checkbox" = casilla de verificación</p>
+            <p>input type="file" = selector de archivo</p>
+            <p>input type="submit" = botón para enviar el formulario</p>
+            <p>input type="reset" = botón para limpiar el formulario</p>
+            <p>textarea = área de texto multilínea</p>
+            <p>select = lista desplegable</p>
+            <p>button = botón genérico</p>
+            <p>fieldset = agrupa controles del formulario</p>
+            <p>legend = título del grupo (fieldset)</p>
+        </li>
+    </ul>
+    <p>¿Cuáles son los principales controles de una forma HTML5?</p>
+    <ul>
+        <li> 
+            <p>Estructura: </p>
+            <p>table = tabla</p>
+            <p>thead = encabezado</p>
+            <p>tbody = cuerpo</p>
+            <p>tfoot = pie</p>
+            <p>tr = fila</p>
+            <p>th = celda de encabezado</p>
+            <p>td = celda normal</p>
+            <p>caption = título de la tabla</p>
+            <p>Estilo: </p>
+            <p>border</p>
+            <p>colspan</p>
+            <p>rowspan</p>
+            <p>ancho y alto (ahora con CSS)</p>
+        </li>
+    </ul>
+    <p>¿Qué tanto soporte HTML5 tiene el navegador que utilizas?</p>
+    <ul>
+        <li>Normalmente utilizo el navegador de google chrome, el cuál al hacer la prueba, me dan 526 puntos de 555 puntos.</li>
+    </ul>
+    <p>Sobre el ciclo de vida y desarrollo de los sistemas de información: </p>
+    <p>¿Cuál es el ciclo de vida de los sistemas de información?</p>
+    <ul>
+        <li>
+            <p>Planeación = identificación de necesidades y objetivos del sistema</p>
+            <p>Análisis = recopilación y estudio de requerimientos</p>
+            <p>Diseño = definición de arquitectura, base de datos e interfaces</p>
+            <p>Desarrollo = programación y construcción del sistema</p>
+            <p>Pruebas = verificación y validación del funcionamiento</p>
+            <p>Implementación = puesta en marcha del sistema</p>
+            <p>Operación = uso del sistema en el entorno real</p>
+            <p>Mantenimiento = corrección de errores y mejoras continuas</p>
+        </li>
+    </ul>
+
+    <p>¿Cuál es el ciclo de desarrollo de sistemas de información?</p>
+    <ul>
+        <li>
+            <p>Recolección de requisitos = definición detallada de lo que el sistema debe hacer</p>
+            <p>Análisis = modelado de procesos y datos</p>
+            <p>Diseño = creación de estructura técnica y lógica</p>
+            <p>Codificación = desarrollo del software</p>
+            <p>Pruebas = evaluación del sistema para detectar errores</p>
+            <p>Implementación = instalación y entrega al usuario</p>
+            <p>Mantenimiento = actualización y mejora del sistema</p>
+        </li>
+    </ul>
+
+</body>
+<footer>
+    <p>En este laboratorio, usé el editor HTML: <a href="https://code.visualstudio.com/">Visual Studio Code</a> </p>
+    <p>Autor: <strong>Gerardo Martínez Carbajal | A01713474</strong></p>
+</footer>
+</html>
