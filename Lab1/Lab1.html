@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
-<header>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Índice de Tareas</title>
-
-    <style>
-        body {
-            background-color: #96b3c0;
-            color: black;
-            font-family: Arial, sans-serif;
-        }
-    </style>
-</header>
+    <link rel="stylesheet" href="../Lab2/Lab1_styles.css">
+</head>
 
 <body>
+    <div id="principal">
     <h1>Gerardo Martínez Carbajal</h1>
     <p>Matrícula: A01713474</p>
     <p>Correo electrónico personal: gerardomartinezcbj@gmail.com</p>
@@ -208,9 +205,57 @@
         </li>
     </ul>
 
-</body>
+    <h2>Preguntas Lab 2</h2>
+
+    <p>Como ingeniero de software ¿cuál es tu recomendación sobre el uso de !important en un CSS? </p>
+    <ul>
+        <li>
+            <p>Debería de usarse en casos muy específicos en los que se tenga que establecer de manera obligatoria un atributo en específico.</p>
+            <p>Aunque sería más recomendable mantener una buena estructura dentro del archivo y comunicación dentro del equipo de trabajo para que no vuelva
+            el manteniemiento del código más dificl, por ejemplo.</p>
+        </li>
+    </ul>
+
+     <p>Si se pone una imagen de fondo en una página HTML, ¿por qué debe escogerse con cuidado?</p>
+    <ul>
+        <li>
+            <p>Porque si no se hace, puede afectar de forma negativa a:</p>
+            <p>La legibilidad del texto encima de la imagen.</p>
+            <p>El rendimiento si el archivo es muy pesado.</p>
+            <p>El cómo se adapta a distintos dispositivos.</p>
+            <p>La coerencia entre el fondo y la página como tal.</p>
+        </li>
+    </ul>
+    <p>Como ingeniero de software, ¿cuál es tu recomendación al elegir las unidades de un propiedad de estilo entre %, px y pt?</p>
+    <ul>
+        <li>
+            <p>:</p>
+            <p>% (porcentaje):</p>
+            <p>Se recomienda para diseños responsivos.</p>
+            <p>Permite que los elementos se adapten al tamaño del contenedor.</p>
+            <p>px (píxeles):</p>
+            <p>Se recomienda para tamaños específicos y precisos (bordes, sombras, elementos pequeños).</p>
+            <p>Es una unidad fija.</p>
+            <p>pt (puntos):</p>
+            <p>Está más orientado a impresión, no a pantallas.</p>
+            <p>Por lo que usaría % para layouts flexibles, px para detalles específicos y evitaría pt en el desarrollo web moderno.</p>
+        </li>
+    </ul>
+    <p>¿Por qué el uso de una versión minimizada del CSS mejora el rendimiento del sitio?</p>
+    <ul>
+        <li>
+            <p>Un CSS minimizado elimina espacios innecesarios, los saltos de línea, comentarios y también reduce el tamaño del archivo.</p>
+            <p>Esto provoca que el archivo pese menos, se descargue más rápido y mejore el tiempo de carga del sitio.</p>
+            <p>Aunque el navegador interpreta igual el archivo, al ser más pequeño tarda menos en transferirse desde el servidor.</p>
+        </li>
+    </ul>
 <footer>
-    <p>En este laboratorio, usé el editor HTML: <a href="https://code.visualstudio.com/">Visual Studio Code</a> </p>
+    <p>En este laboratorio, usé el editor HTML: 
+        <a href="https://code.visualstudio.com/">Visual Studio Code</a>
+    </p>
     <p>Autor: <strong>Gerardo Martínez Carbajal | A01713474</strong></p>
+    </div>
 </footer>
+
+</body>
 </html>
