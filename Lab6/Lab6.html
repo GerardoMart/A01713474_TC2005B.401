@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Laboratorio 6:Programación orientada a eventos</title>
+<link rel="stylesheet" href="styles.min.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="titulo">Laboratorio 6:Programación orientada a eventos</h1>
+
+<form>
+
+<div class="field">
+
+<label>Password</label><br>
+<input type="password" id="pass">
+
+<div id="help1" class="tooltip">
+Debe tener mínimo:
+<ul>
+<li>8 caracteres</li>
+<li>1 número</li>
+<li>1 mayúscula</li>
+</ul>
+</div>
+
+</div>
+
+<div class="field">
+
+<label>Confirmar Password</label><br>
+<input type="password" id="confirm">
+
+<div id="help2" class="tooltip">
+Debe coincidir con el password.
+</div>
+
+</div>
+
+<div id="estado" class="seguridad"></div>
+
+</form>
+
+<h3>Arrastra el elemento (Drag & Drop)</h3>
+
+<div id="caja" draggable="true">
+Arrástrame
+</div>
+
+<div id="zona">
+Suelta aquí
+</div>
+
+<hr>
+
+<h2>Preguntas</h2>
+
+<h3>¿Por qué es una buena práctica usar JavaScript para checar que sean válidos los inputs de las formas antes de enviar los datos al servidor?</h3>
+<ul>
+<li>
+<p>Porque mejora la experiencia del usuario.</p>
+<p>El usuario recibe retroalimentación inmediata sin tener que recargar la página.</p>
+</li>
+
+<li>
+<p>Reduce solicitudes innecesarias al servidor.</p>
+<p>Si los datos son incorrectos se detecta antes de enviarlos.</p>
+</li>
+
+<li>
+<p>Hace que las aplicaciones web sean más rápidas y eficientes.</p>
+</li>
+
+<li>
+<p>Ayuda a guiar al usuario para que capture correctamente la información.</p>
+</li>
+</ul>
+
+<h3>¿Cómo puedes saltarte la seguridad de validaciones hechas con JavaScript?</h3>
+<ul>
+<li><p>Desactivando JavaScript en el navegador.</p></li>
+<li><p>Modificando el código desde las herramientas de desarrollador del navegador.</p></li>
+<li><p>Alterando el formulario antes de enviarlo.</p></li>
+</ul>
+
+<h3>Si te puedes saltar la seguridad de las validaciones de JavaScript, entonces ¿por qué la primera pregunta dice que es una buena práctica?</h3>
+<ul>
+<li><p>Porque la validación en el cliente no reemplaza la validación en el servidor.</p></li>
+<li><p>Se utiliza para mejorar la experiencia del usuario y reducir errores antes de enviar los datos.</p></li>
+<li><p>La seguridad real siempre debe implementarse también en el backend.</p></li>
+<li><p>Por lo que en conlcusión lo correcto es tener validación doble: en cliente y en servidor.</p></li>
+</ul>
+
+<hr>
+
+<h3>Fuentes consultadas</h3>
+
+<ul>
+<li>W3Schools CSS Position</li>
+<li>W3Schools CSS Fonts</li>
+<li>W3Schools Visibility</li>
+<li>W3Schools Drag and Drop</li>
+</ul>
+
+<footer>
+Gerardo Martínez Carbajal
+</footer>
+
+</div>
+
+<script src="Lab6.js"></script>
+
+</body>
+</html>
