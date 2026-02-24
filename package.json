@@ -1,0 +1,25 @@
+{
+  "name": "a01713474_tc2005b.401",
+  "version": "1.0.0",
+  "description": "4to Semestre Labs Construcción de software",
+  "homepage": "https://github.com/GerardoMart/A01713474_TC2005B.401#readme",
+  "bugs": {
+    "url": "https://github.com/GerardoMart/A01713474_TC2005B.401/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GerardoMart/A01713474_TC2005B.401.git"
+  },
+  "license": "MIT",
+  "author": "Gerardo Martínez Carbajal - A01713474",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch app.js",
+    "hola": "echo \"hola\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
