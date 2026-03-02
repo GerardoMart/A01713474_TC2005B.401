@@ -1,0 +1,19 @@
+<%- include('includes/header') %>
+
+<div class="container">
+    <h2>Calcular Promedio</h2>
+
+    <form action="/promedio" method="POST">
+        <input name="numeros" placeholder="1,2,3,4">
+        <button>Calcular</button>
+    </form>
+
+    <% if (resultado !== undefined) { %>
+        <h3>Promedio = <%= resultado %></h3>
+    <% } %>
+
+    <br>
+    <a href="/">Volver</a>
+</div>
+
+<%- include('includes/footer') %>

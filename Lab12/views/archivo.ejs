@@ -1,0 +1,26 @@
+<%- include('includes/header') %>
+<%- include('includes/form') %>
+
+<div class="container">
+<h2>Guardar texto</h2>
+
+<form method="POST">
+    <input name="texto">
+    <button>Guardar</button>
+</form>
+
+<h3>Textos guardados:</h3>
+
+<% if(textos.length>0){ %>
+<ul>
+    <% textos.forEach(t=>{ %>
+        <li><%= t %></li>
+    <% }) %>
+</ul>
+<% } else { %>
+<p>No hay datos aún</p>
+<% } %>
+
+</div>
+
+<%- include('includes/footer') %>

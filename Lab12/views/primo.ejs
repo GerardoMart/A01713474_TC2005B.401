@@ -1,0 +1,22 @@
+<%- include('includes/header') %>
+
+<div class="container">
+    <h2>Número Primo</h2>
+
+    <form action="/primo" method="POST">
+        <input name="numero" placeholder="Ingresa un número">
+        <button>Verificar</button>
+    </form>
+
+    <% if (resultado !== undefined) { %>
+        <h3>
+            <%= numero %>
+            <%= resultado ? "ES primo" : "NO es primo" %>
+        </h3>
+    <% } %>
+
+    <br>
+    <a href="/">Volver</a>
+</div>
+
+<%- include('includes/footer') %>

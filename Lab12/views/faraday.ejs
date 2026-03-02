@@ -1,0 +1,28 @@
+<%- include('includes/header') %>
+
+<div class="container">
+    <h2>Ley de Faraday</h2>
+
+    <form action="/fisica/faraday" method="POST">
+        N:<input name="N"><br><br>
+        Theta:<input name="theta"><br><br>
+        Bi:<input name="Bi"><br><br>
+        Bf:<input name="Bf"><br><br>
+        dt:<input name="dt"><br><br>
+        fem:<input name="fem"><br><br>
+
+        <button>Calcular</button>
+    </form>
+
+    <% if (resultado) { %>
+        <h3>Resultados</h3>
+        Área: <%= resultado.area.toFixed(6) %><br>
+        Lado: <%= resultado.lado.toFixed(4) %><br>
+        Longitud total: <%= resultado.longitud.toFixed(4) %>
+    <% } %>
+
+    <br>
+    <a href="/">Volver</a>
+</div>
+
+<%- include('includes/footer') %>
