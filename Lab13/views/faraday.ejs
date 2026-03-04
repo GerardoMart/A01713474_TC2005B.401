@@ -21,6 +21,21 @@
         Longitud total: <%= resultado.longitud.toFixed(4) %>
     <% } %>
 
+    <% if (historial && historial.length > 0) { %>
+        <hr>
+        <h3>Historial de cálculos</h3>
+
+        <ul>
+            <% historial.forEach((item, index) => { %>
+                <li>
+                    Cálculo <%= index %> —
+                    Área: <%= item.area.toFixed(4) %>,
+                    Lado: <%= item.lado.toFixed(4) %>,
+                    Longitud: <%= item.longitud.toFixed(4) %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
     <br>
     <a href="/">Volver</a>
 </div>

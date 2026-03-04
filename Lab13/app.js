@@ -4,24 +4,23 @@ const path = require("path");
 
 const app = express();
 
-// ===== CONFIGURAR EJS =====
 app.set("view engine", "ejs");
 app.set("views", "views");
 
-// ===== MIDDLEWARE =====
+//Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// archivos estáticos (CSS)
+//css
 app.use(express.static(path.join(__dirname, "public")));
 
-// ===== RUTAS =====
+//Rutas
 const operacionesRoutes = require("./routes/Operaciones");
 const fisicaRoutes = require("./routes/Fisica");
 
 app.use("/", operacionesRoutes);
 app.use("/fisica", fisicaRoutes);
 
-// ===== 404 =====
+//404
 app.use((req, res) => {
     res.status(404).render("404");
 });

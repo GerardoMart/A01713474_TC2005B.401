@@ -1,0 +1,14 @@
+<h1>Historial de cálculos</h1>
+
+<ul>
+    <% historial.forEach((item, index) => { %>
+        <li>
+            Cálculo <%= index %>
+            <a href="/fisica/historial/<%= index %>">
+                Ver detalle
+            </a>
+        </li>
+    <% }) %>
+</ul>
+
+<a href="/fisica/faraday">Nuevo cálculo</a>

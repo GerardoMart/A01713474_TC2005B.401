@@ -14,13 +14,12 @@
 <% if(textos.length>0){ %>
 <ul>
     <% textos.forEach(t=>{ %>
-        <li><%= t %></li>
+        <li><%= t.contenido %></li>
     <% }) %>
 </ul>
 <% } else { %>
 <p>No hay datos aún</p>
 <% } %>
-
 </div>
 
 <%- include('includes/footer') %>

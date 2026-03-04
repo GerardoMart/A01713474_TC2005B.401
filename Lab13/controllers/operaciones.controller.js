@@ -1,11 +1,6 @@
-const express = require("express");
 const fs = require("fs");
+const Texto = require("../models/texto.model");
 
-const router = express.Router();
-
-let textos = [];
-
-//Funciones
 function promedio(numeros){
     return numeros.reduce((a,b)=>a+Number(b),0)/numeros.length;
 }
@@ -17,51 +12,48 @@ function esPrimo(n){
     return true;
 }
 
-//Home
-router.get("/", (req,res)=>{
+//Controladores
+exports.getIndex = (req,res) => {
     res.render("index");
-});
+};
 
 //Promedio
-router.get("/promedio",(req,res)=>{
+exports.getPromedio = (req,res)=>{
     res.render("promedio",{resultado:null});
-});
+};
 
-router.post("/promedio",(req,res)=>{
+exports.postPromedio = (req,res)=>{
     const arr=req.body.numeros.split(",");
-
-    res.render("promedio",{
-        resultado: promedio(arr)
-    });
-});
+    res.render("promedio",{resultado:promedio(arr)});
+};
 
 //Primo
-router.get("/primo",(req,res)=>{
+exports.getPrimo = (req,res)=>{
     res.render("primo",{resultado:null, numero:null});
-});
+};
 
-router.post("/primo",(req,res)=>{
+exports.postPrimo = (req,res)=>{
     const n=Number(req.body.numero);
 
     res.render("primo",{
         numero:n,
         resultado:esPrimo(n)
     });
-});
+};
 
 //Archivo
-router.get("/archivo",(req,res)=>{
+exports.getArchivo = (req,res)=>{
+    const textos = Texto.fetchAll();
     res.render("archivo",{textos});
-});
+};
 
-router.post("/archivo",(req,res)=>{
+exports.postArchivo = (req,res)=>{
     const texto=req.body.texto;
 
-    fs.appendFileSync("Lab12.txt", texto+"\n");
+    const nuevoTexto = new Texto(texto);
+    nuevoTexto.save();
 
-    textos.push(texto);
+    fs.appendFileSync("Lab13.txt", texto+"\n");
 
     res.redirect("/archivo");
-});
-
-module.exports = router;
+};
