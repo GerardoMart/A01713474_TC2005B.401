@@ -30,6 +30,19 @@
 
 <br>
 
+<ul>
+<% textos.forEach(t => { %>
+    <li>
+        <%= t.contenido %>
+
+        <a href="/editar/<%= t.id %>">
+            <button>Editar</button>
+        </a>
+
+    </li>
+<% }) %>
+</ul>
+
 <a href="/logout">
 <button>Cerrar sesión</button>
 </a>
