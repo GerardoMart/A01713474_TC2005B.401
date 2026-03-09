@@ -17,6 +17,12 @@ router.post("/primo", operacionesController.postPrimo);
 //Archivo
 router.get("/archivo", operacionesController.getArchivo);
 router.post("/archivo", operacionesController.postArchivo);
+
+//Editar texto
+router.get('/editar/:texto_id', operacionesController.getEditarTexto);
+router.post('/editar', operacionesController.postEditarTexto);
+
+//Logout
 router.get("/logout", operacionesController.logout);
 
 module.exports = router;

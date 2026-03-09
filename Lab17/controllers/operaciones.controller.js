@@ -42,9 +42,7 @@ exports.postPrimo = (req,res)=>{
 };
 
 //Archivo
-exports.getArchivo = (req,res)=>{
-
-    const textos = Texto.fetchAll();
+exports.getArchivo = (req,res,next)=>{
 
     //Leer cookies
     const cookies = req.get("Cookie");
@@ -61,32 +59,77 @@ exports.getArchivo = (req,res)=>{
         }
     }
 
-    //Leer la sesión
+    //Leer sesión
     const ultimoTextoSesion = req.session.ultimoTexto;
 
-    res.render("archivo",{
-        textos,
-        ultimoTextoCookie,
-        ultimoTextoSesion
+    Texto.fetchAll()
+    .then(([rows, fieldData]) => {
+
+        res.render("archivo",{
+            textos: rows,
+            ultimoTextoCookie,
+            ultimoTextoSesion
+        });
+
+    })
+    .catch(err => {
+        console.log(err);
     });
+
 };
 
-exports.postArchivo = (req,res)=>{
 
-    const texto=req.body.texto;
+exports.postArchivo = (req,res,next)=>{
+
+    const texto = req.body.texto;
 
     const nuevoTexto = new Texto(texto);
-    nuevoTexto.save();
 
-    fs.appendFileSync("Lab13.txt", texto+"\n");
+    nuevoTexto.save()
+    .then(()=>{
 
-    //Cookie
-    res.setHeader("Set-Cookie", "ultimoTexto="+texto+"; HttpOnly");
+        fs.appendFileSync("Lab17.txt", texto+"\n");
 
-    //Variable de sesión
-    req.session.ultimoTexto = texto;
+        //Cookie
+        res.setHeader("Set-Cookie", "ultimoTexto="+texto+"; HttpOnly");
 
-    res.redirect("/archivo");
+        //Variable de sesión
+        req.session.ultimoTexto = texto;
+
+        res.redirect("/archivo");
+
+    })
+    .catch(err=>{
+        console.log(err);
+    });
+
+};
+
+exports.getEditarTexto = (req,res,next)=>{
+
+    const id = req.params.texto_id;
+
+    Texto.fetchOne(id)
+    .then(([rows])=>{
+        res.render("editar",{
+            texto: rows[0]
+        });
+    })
+    .catch(err=>console.log(err));
+
+};
+
+exports.postEditarTexto = (req,res,next)=>{
+
+    const id = req.body.id;
+    const contenido = req.body.contenido;
+
+    Texto.update(id, contenido)
+    .then(()=>{
+        res.redirect("/archivo");
+    })
+    .catch(err=>console.log(err));
+
 };
 
 exports.logout = (req,res)=>{

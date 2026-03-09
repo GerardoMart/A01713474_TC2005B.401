@@ -1,0 +1,27 @@
+<nav>
+    <a href="/promedio">Promedio</a> |
+    <a href="/primo">Primo</a> |
+    <a href="/archivo">Guardar</a> |
+    <a href="/fisica/faraday">Faraday</a>
+    <h1>¿Qué ventajas tiene escribir el código SQL únicamente en la capa del modelo?</h1>
+    <p>Permite mantener una separación clara de responsabilidades dentro de la arquitectura MVC,
+        ya que el modelo se encarga únicamente de la interacción con la base de datos,
+        mientras que el controlador maneja la lógica de la aplicación y tmabién la vista la presentación.</p>
+    <p>Facilita el mantenimiento del proyecto, porque si se necesita modificar una consulta
+        o cambiar la estructura de la base de datos, los cambios se realizan solamente en el modelo
+        sin afectar al resto del sistema.</p>
+
+    <h1>¿Qué es SQL injection y cómo se puede prevenir?</h1>
+    <p>SQL injection es un tipo de ataque en el que un usuario malintencionado introduce
+        código SQL dentro de los datos que envía a una aplicación, con el objetivo de
+        manipular las consultas que se ejecutan en la base de datos.</p>
+    <p>Este ataque puede permitir que un atacante acceda a nuestra información sensible,
+        modifique registros o incluso elimine datos de la base de datos.</p>
+    <p>Una forma de prevenirlo es utilizar consultas parametrizadas o preparadas,
+        donde los valores que envía el usuario se pasan como parámetros separados
+        de la consulta SQL en lugar de concatenarse directamente en el string.</p>
+    <p>También es recomendable validar y sanitizar los datos de entrada del usuario,
+        además de limitar los permisos del usuario de la base de datos para reducir
+        el impacto en caso de que ocurra un ataque de esta índole.</p>
+</nav>
+<hr>

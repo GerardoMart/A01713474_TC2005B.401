@@ -1,0 +1,19 @@
+<%- include('includes/header') %>
+
+<div class="container">
+
+<h2>Editar texto</h2>
+
+<form action="/editar" method="POST">
+
+    <input type="hidden" name="id" value="<%= texto.id %>">
+
+    <input type="text" name="contenido" value="<%= texto.contenido %>">
+
+    <button>Guardar cambios</button>
+
+</form>
+
+</div>
+
+<%- include('includes/footer') %>
