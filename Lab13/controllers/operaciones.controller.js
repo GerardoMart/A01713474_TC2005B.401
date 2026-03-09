@@ -43,11 +43,36 @@ exports.postPrimo = (req,res)=>{
 
 //Archivo
 exports.getArchivo = (req,res)=>{
+
     const textos = Texto.fetchAll();
-    res.render("archivo",{textos});
+
+    //Leer cookies
+    const cookies = req.get("Cookie");
+
+    let ultimoTextoCookie = "";
+
+    if(cookies){
+        ultimoTextoCookie = cookies
+        .split(";")
+        .find(c => c.trim().startsWith("ultimoTexto="));
+
+        if(ultimoTextoCookie){
+            ultimoTextoCookie = ultimoTextoCookie.split("=")[1];
+        }
+    }
+
+    //Leer la sesión
+    const ultimoTextoSesion = req.session.ultimoTexto;
+
+    res.render("archivo",{
+        textos,
+        ultimoTextoCookie,
+        ultimoTextoSesion
+    });
 };
 
 exports.postArchivo = (req,res)=>{
+
     const texto=req.body.texto;
 
     const nuevoTexto = new Texto(texto);
@@ -55,5 +80,19 @@ exports.postArchivo = (req,res)=>{
 
     fs.appendFileSync("Lab13.txt", texto+"\n");
 
+    //Cookie
+    res.setHeader("Set-Cookie", "ultimoTexto="+texto+"; HttpOnly");
+
+    //Variable de sesión
+    req.session.ultimoTexto = texto;
+
     res.redirect("/archivo");
+};
+
+exports.logout = (req,res)=>{
+
+    req.session.destroy(()=>{
+        res.redirect("/archivo");
+    });
+
 };

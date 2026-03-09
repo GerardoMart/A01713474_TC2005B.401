@@ -17,5 +17,6 @@ router.post("/primo", operacionesController.postPrimo);
 //Archivo
 router.get("/archivo", operacionesController.getArchivo);
 router.post("/archivo", operacionesController.postArchivo);
+router.get("/logout", operacionesController.logout);
 
 module.exports = router;

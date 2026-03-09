@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
+const session = require("express-session");
 
 const app = express();
 
@@ -9,6 +10,13 @@ app.set("views", "views");
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//Middleware de sesiones
+app.use(session({
+    secret: "mi_string_secreto_muy_largo_para_la_sesion",
+    resave: false,
+    saveUninitialized: false,
+}));
 
 //css
 app.use(express.static(path.join(__dirname, "public")));

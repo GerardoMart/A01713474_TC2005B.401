@@ -2,12 +2,19 @@
 <%- include('includes/form') %>
 
 <div class="container">
+
 <h2>Guardar texto</h2>
 
 <form method="POST">
     <input name="texto">
     <button>Guardar</button>
 </form>
+
+<h3>Último texto guardado (Cookie)</h3>
+<p><%= ultimoTextoCookie || "No hay cookie aún" %></p>
+
+<h3>Último texto guardado (Sesión)</h3>
+<p><%= ultimoTextoSesion || "No hay sesión aún" %></p>
 
 <h3>Textos guardados:</h3>
 
@@ -20,6 +27,13 @@
 <% } else { %>
 <p>No hay datos aún</p>
 <% } %>
+
+<br>
+
+<a href="/logout">
+<button>Cerrar sesión</button>
+</a>
+
 </div>
 
 <%- include('includes/footer') %>
