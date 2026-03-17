@@ -20,10 +20,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.7",
+    "csurf": "^1.11.0",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "express-session": "^1.19.0",
-    "mysql2": "^3.19.0"
+    "mysql2": "^3.20.0"
   }
 }

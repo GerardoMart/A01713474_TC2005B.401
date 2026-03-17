@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab18: Autentificación</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <a href="/">Inicio</a>
+    </div>
+
+    <div>
+        <% if (!isAuthenticated) { %>
+            <a href="/login">Login</a>
+            <a href="/register">Registro</a>
+        <% } else { %>
+            <span><%= role %></span>
+            <a href="/logout">Logout</a>
+        <% } %>
+    </div>
+</header>

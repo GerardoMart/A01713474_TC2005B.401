@@ -1,0 +1,67 @@
+<%- include('includes/header') %>
+
+<div style="background-color: <%= bgColor %>; min-height: 100vh; padding: 20px;">
+
+    <h1>Galería</h1>
+
+    <% if (role === 'admin') { %>
+        <form method="POST" action="/color">
+            <input type="color" name="color" required>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button>Cambiar fondo</button>
+        </form>
+    <% } %>
+
+    <% if (isAuthenticated) { %>
+        <form method="POST" action="/image">
+            <input type="text" name="url" placeholder="URL de la imagen" required>
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <button>Subir imagen</button>
+        </form>
+    <% } %>
+
+    <hr>
+
+    <% images.forEach(img => { %>
+
+        <div style="margin-bottom: 20px; padding: 10px; background: white; border-radius: 10px;">
+
+            <img src="<%= img.url %>" width="200">
+
+            <form method="POST" action="/comment">
+                <input type="text" name="username" 
+                    placeholder="Tu nombre"
+                    value="<%= guestName || '' %>">
+
+                <input type="text" name="content" placeholder="Escribe un comentario" required>
+
+                <input type="hidden" name="imageId" value="<%= img.id %>">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                <button>Comentar</button>
+            </form>
+
+            <div style="margin-top: 10px;">
+                <h4>Comentarios:</h4>
+
+                <% if (!img.comments || img.comments.length === 0) { %>
+                    <p>Sin comentarios</p>
+                <% } %>
+
+                <% img.comments.forEach(c => { %>
+                    <p>
+                        <strong>
+                            <%= c.email ? c.email : (c.username || 'Invitado') %>:
+                        </strong>
+                        <%= c.content %>
+                    </p>
+                <% }) %>
+            </div>
+
+        </div>
+
+    <% }) %>
+
+</div>
+
+<%- include('includes/footer') %>
