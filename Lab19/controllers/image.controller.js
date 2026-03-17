@@ -39,3 +39,16 @@ exports.postImage = (req, res) => {
             res.redirect('/');
         });
 };
+
+exports.deleteImage = (req, res) => {
+    const id = req.params.id;
+
+    Image.delete(id)
+    .then(() => {
+        res.redirect('/');
+    })
+    .catch(err => {
+        console.log(err);
+        res.redirect('/');
+    });
+};
