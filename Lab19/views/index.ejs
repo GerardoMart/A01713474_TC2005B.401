@@ -20,6 +20,14 @@
         </form>
     <% } %>
 
+    <section style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,.85); border-radius: 10px;">
+        <h3>¿Quieres buscar un usuario en específico?</h3>
+        <input id="search-user-input" type="text" placeholder="Correo o nombre del usuario">
+        <input id="search-csrf" type="hidden" value="<%= csrfToken %>">
+        <button id="search-user-button" type="button">Buscar</button>
+        <div id="search-results" style="margin-top: 12px;"></div>
+    </section>
+
     <hr>
 
     <% images.forEach(img => { %>
@@ -63,5 +71,92 @@
     <% }) %>
 
 </div>
+
+<script>
+    const searchInput = document.getElementById('search-user-input');
+    const searchButton = document.getElementById('search-user-button');
+    const searchResults = document.getElementById('search-results');
+    const csrfToken = document.getElementById('search-csrf').value;
+    let searchTimeout;
+
+    const escapeHtml = (value) => {
+        const safeValue = document.createElement('span');
+        safeValue.textContent = value || '';
+        return safeValue.innerHTML;
+    };
+
+    const renderSection = (title, rows, emptyMessage, template) => `
+        <div style="margin-top: 12px;">
+            <h4>${title}</h4>
+            ${rows.length ? rows.map(template).join('') : `<p>${emptyMessage}</p>`}
+        </div>
+    `;
+
+    const searchByUser = () => {
+        const query = searchInput.value.trim();
+
+        if (!query) {
+            searchResults.innerHTML = '<p>Escribe un usuario para ver coincidencias.</p>';
+            return;
+        }
+
+        searchResults.innerHTML = '<p>Buscando...</p>';
+
+        fetch('/search/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'csrf-token': csrfToken
+            },
+            body: JSON.stringify({ query })
+        })
+            .then((result) => result.json())
+            .then((data) => {
+                const imagesHtml = renderSection(
+                    'Imágenes',
+                    data.images || [],
+                    'No se encontraron imágenes para este usuario.',
+                    (img) => `
+                        <div style="margin-bottom: 10px;">
+                            <strong>${escapeHtml(img.email)}</strong><br>
+                            <img src="${escapeHtml(img.url)}" width="120" alt="Imagen encontrada">
+                        </div>
+                    `
+                );
+
+                const commentsHtml = renderSection(
+                    'Comentarios',
+                    data.comments || [],
+                    'No se encontraron comentarios para este usuario.',
+                    (comment) => `
+                        <p>
+                            <strong>${escapeHtml(comment.email || comment.username || 'Invitado')}</strong>:
+                            ${escapeHtml(comment.content)}
+                        </p>
+                    `
+                );
+
+                searchResults.innerHTML = `<p>${escapeHtml(data.message)}</p>${imagesHtml}${commentsHtml}`;
+            })
+            .catch(() => {
+                searchResults.innerHTML = '<p>Ocurrió un error al hacer la búsqueda.</p>';
+            });
+    };
+
+    searchButton.addEventListener('click', searchByUser);
+
+    searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(searchByUser, 250);
+    });
+
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            clearTimeout(searchTimeout);
+            searchByUser();
+        }
+    });
+</script>
 
 <%- include('includes/footer') %>

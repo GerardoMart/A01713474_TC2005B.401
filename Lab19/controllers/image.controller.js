@@ -40,6 +40,39 @@ exports.postImage = (req, res) => {
         });
 };
 
+exports.searchByUser = async (req, res) => {
+    const query = (req.body.query || '').trim();
+
+    if (!query) {
+        return res.status(200).json({
+            message: 'Escribe un usuario para buscar',
+            images: [],
+            comments: []
+        });
+    }
+
+    try {
+        const userQuery = `%${query}%`;
+        const [[images], [comments]] = await Promise.all([
+            Image.searchByUser(userQuery),
+            Comment.searchByUser(userQuery)
+        ]);
+
+        return res.status(200).json({
+            message: `Resultados para "${query}"`,
+            images,
+            comments
+        });
+    } catch (err) {
+        console.log(err);
+        return res.status(500).json({
+            message: 'No se pudo completar la búsqueda',
+            images: [],
+            comments: []
+        });
+    }
+};
+
 exports.deleteImage = (req, res) => {
     const id = req.params.id;
 

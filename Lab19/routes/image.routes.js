@@ -7,6 +7,8 @@ const isAdmin = require('../util/is-admin');
 
 router.get('/', ctrl.getIndex);
 
+router.post('/search/user', ctrl.searchByUser);
+
 router.post('/image', isAuth, ctrl.postImage);
 
 router.post('/comment', isAuth, commentCtrl.postComment);

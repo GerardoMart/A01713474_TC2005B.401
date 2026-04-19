@@ -21,6 +21,22 @@ class Comment {
     `, [imageId]);
 }
 
+    static searchByUser(userQuery) {
+    return db.execute(`
+        SELECT
+            comments.content,
+            comments.username,
+            comments.image_id AS imageId,
+            images.url AS imageUrl,
+            users.email
+        FROM comments
+        LEFT JOIN users ON comments.user_id = users.id
+        INNER JOIN images ON comments.image_id = images.id
+        WHERE COALESCE(users.email, comments.username) LIKE ?
+        ORDER BY comments.id DESC
+    `, [userQuery]);
+}
+
 }
 
 module.exports = Comment;
