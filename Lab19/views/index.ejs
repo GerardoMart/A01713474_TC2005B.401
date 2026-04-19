@@ -22,6 +22,7 @@
 
     <section style="margin: 20px 0; padding: 15px; background: rgba(255,255,255,.85); border-radius: 10px;">
         <h3>¿Quieres buscar un usuario en específico?</h3>
+        <p>Componentes AJAX utilizados: petición asíncrona con fetch, respuesta en formato JSON y actualización dinámica del contenedor de resultados sin recargar la página.</p>
         <input id="search-user-input" type="text" placeholder="Correo o nombre del usuario">
         <input id="search-csrf" type="hidden" value="<%= csrfToken %>">
         <button id="search-user-button" type="button">Buscar</button>
