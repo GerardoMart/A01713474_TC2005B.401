@@ -1,5 +1,6 @@
 -- Gerardo Martínez Carbajal A01713474 | Lab 25: Manipulación de datos usando Transacciones
--- Lab 25: Manipulación de datos usando Transacciones 
+-- Lab 25: Manipulación de datos usando Transacciones
+-- Commit ya que se me olvidó hacer push únicamente de este lab y lo inclupi accidentalmente junto con el link del lab22.
 
 DROP DATABASE IF EXISTS LAB25;
 CREATE DATABASE LAB25;
